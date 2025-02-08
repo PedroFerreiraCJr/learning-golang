@@ -6,8 +6,9 @@ func main() {
 	// a seguinte função serve para criar um slice a partir de alguns argumentos;
 	// o primeiro argumento é o tipo do slice;
 	// o segundo argumento é o número de elementos do slice;
-	// o funcionamento da função 'make', é criar um array de 10 posições, onde
-	// o slice retornado faz referência para o primeiro índice do array criado;
+	// o funcionamento da função 'make', para os argumentos informados, é criar um array
+	// de 10 posições, onde o slice retornado faz referência para o primeiro
+	// índice (índice '0'), do array criado;
 	s := make([]int, 10)
 
 	// atribui o valor '42' à última posição do slice;
@@ -15,6 +16,9 @@ func main() {
 	fmt.Println(s)
 
 	// slice de inteiros, com 10 elementos, com um array interno de 20 posições;
+	// os valores dos elementos do array criado, são inicializados para o valor padrão de acordo
+	// com o tipo de dado informado; por isso que é possível ler qualquer uma das posições do
+	// array interno através do slice retornado pela função 'make';
 	s = make([]int, 10, 20)
 
 	// a função 'len', aplicada a um slice, retorna o tamanho dele;
