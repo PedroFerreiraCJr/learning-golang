@@ -12,14 +12,14 @@ import (
 // que a função que à invocar possa fazer uso das informações enviadas através do channel;
 func titulo(urls ...string) <-chan string {
 	c := make(chan string)
-	for _, url := range urls {
+	for _, u := range urls {
 		go func(url string) {
 			response, _ := http.Get(url)
 			html, _ := ioutil.ReadAll(response.Body)
 
-			r, _ := regexp.Compile("<title>(.*?)<\\/title")
+			r, _ := regexp.Compile("<title>(.*?)<\\/title>")
 			c <- r.FindStringSubmatch(string(html))[1]
-		}(url)
+		}(u)
 	}
 
 	return c
